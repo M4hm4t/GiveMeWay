@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
 
 
-       
+
 
     }
 
@@ -54,16 +54,16 @@ public class GameManager : MonoBehaviour
     {
 
         Scene scene = SceneManager.GetActiveScene();
-       // print(scene.buildIndex); // checking to see which value will return. It returns 0 
+        // print(scene.buildIndex); // checking to see which value will return. It returns 0 
         int currentlevel = scene.buildIndex + 1;
 
         startText.text = "Level " + currentlevel;
 
-        NextLevelText.text =  currentlevel + 1 + "";
+        NextLevelText.text = currentlevel + 1 + "";
         CurrentLevelText.text = currentlevel.ToString();
-
-        startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
        
+        startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
+
 
 
     }
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
 
         currentDistance = Vector3.Distance(player.transform.position, finish.transform.position);
-        if(player.transform.position.z < finish.transform.position.z)
+        if (player.transform.position.z < finish.transform.position.z)
             fill.fillAmount = 1 - (currentDistance / startDistance);
     }
 
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void GameOverText(string gameOverInfo)
     {
         gameOverText.text = gameOverInfo;
-       
+
     }
     public void RestartGame()
     {

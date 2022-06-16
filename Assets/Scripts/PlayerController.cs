@@ -118,34 +118,39 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    IEnumerator NextLevel()
-    {
-        finish = true;
-        canMove = false;
-        m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);  
+    //IEnumerator NextLevel()
+    //{
+    //    finish = true;
+    //    canMove = false;
+    //    m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);  
        
-       PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
-      // print("current playerref scene: " + m_playerPrefScene); //Testing to see what is the current saved playerRef scene
+    //   PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
+    //  // print("current playerref scene: " + m_playerPrefScene); //Testing to see what is the current saved playerRef scene
 
-       Scene scene = SceneManager.GetActiveScene();
-       // print("curent active scene : "+ scene.name); /testing to see if the current active scene matches to saved playerRef scene
+    //   Scene scene = SceneManager.GetActiveScene();
+    //   // print("curent active scene : "+ scene.name); /testing to see if the current active scene matches to saved playerRef scene
 
-        string playerRefSceneName = string.Concat("Gameplay", m_playerPrefScene);
-        //print(playerRefSceneName);
-
-
-        if (playerRefSceneName != scene.name)  //if they are not matched delete all the key and values. Assign again
-        {
-            PlayerPrefs.DeleteAll();
-            m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);
-            PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
-        }
+    //    string playerRefSceneName = string.Concat("Gameplay", m_playerPrefScene);
+    //    //print(playerRefSceneName);
 
 
-       yield return new WaitForSeconds(1);
-       SceneManager.LoadScene("Gameplay" + PlayerPrefs.GetInt("Gameplay"));
+    //    if (playerRefSceneName != scene.name)  //if they are not matched delete all the key and values. Assign again
+    //    {
+    //        PlayerPrefs.DeleteAll();
+    //        m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);
+    //        PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
+    //    }
+
+
+    //   yield return new WaitForSeconds(1);
+    //   SceneManager.LoadScene("Gameplay" + PlayerPrefs.GetInt("Gameplay"));
 
         
+    //}
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene("Main");
     }
 
     IEnumerator GameoverCoroutine()
@@ -167,7 +172,8 @@ public class PlayerController : MonoBehaviour
     {
         if (target.gameObject.name == "Finish")
         {
-            StartCoroutine(NextLevel());
+            //StartCoroutine(NextLevel());
+            NextLevel();
         }
     }
 
