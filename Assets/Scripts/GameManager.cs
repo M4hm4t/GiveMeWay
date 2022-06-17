@@ -8,10 +8,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
-    private Text CurrentLevelText, NextLevelText;
-    private Image fill;
-    private int level;
-    private float startDistance, currentDistance;
+    //private Text CurrentLevelText;
+   //private Text NextLevelText;
+    //private Image fill;
+   // private int level;
+   // private float startDistance, currentDistance;
     private GameObject player, finish;
     public GameObject swipeHand;
 
@@ -33,10 +34,10 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
 
-        CurrentLevelText = GameObject.Find("CurrentLevelText").GetComponent<Text>();
-        NextLevelText = GameObject.Find("NextLevelText").GetComponent<Text>();
+        //CurrentLevelText = GameObject.Find("CurrentLevelText").GetComponent<Text>();
+       // NextLevelText = GameObject.Find("NextLevelText").GetComponent<Text>();
 
-        fill = GameObject.Find("Fill").GetComponent<Image>();
+       // fill = GameObject.Find("Fill").GetComponent<Image>();
 
         player = GameObject.Find("Player");
         finish = GameObject.Find("Finish");
@@ -53,16 +54,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        Scene scene = SceneManager.GetActiveScene();
+       // Scene scene = SceneManager.GetActiveScene();
         // print(scene.buildIndex); // checking to see which value will return. It returns 0 
-        int currentlevel = scene.buildIndex + 1;
+       // int currentlevel = scene.buildIndex + 1;
 
-        startText.text = "Level " + currentlevel;
+       // startText.text = "Level " + currentlevel;
 
-        NextLevelText.text = currentlevel + 1 + "";
-        CurrentLevelText.text = currentlevel.ToString();
+       // NextLevelText.text = currentlevel + 1 + "";
+       // CurrentLevelText.text = currentlevel.ToString();
        
-        startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
+      //  startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
 
 
 
@@ -71,9 +72,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        currentDistance = Vector3.Distance(player.transform.position, finish.transform.position);
-        if (player.transform.position.z < finish.transform.position.z)
-            fill.fillAmount = 1 - (currentDistance / startDistance);
+        //currentDistance = Vector3.Distance(player.transform.position, finish.transform.position);
+        //if (player.transform.position.z < finish.transform.position.z)
+        //    fill.fillAmount = 1 - (currentDistance / startDistance);
     }
 
 
@@ -95,12 +96,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-
-
-
-
-
-
-
 }
