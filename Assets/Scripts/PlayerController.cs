@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     //    finish = true;
     //    canMove = false;
     //    m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);  
-       
+
     //   PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
     //  // print("current playerref scene: " + m_playerPrefScene); //Testing to see what is the current saved playerRef scene
 
@@ -145,11 +145,12 @@ public class PlayerController : MonoBehaviour
     //   yield return new WaitForSeconds(1);
     //   SceneManager.LoadScene("Gameplay" + PlayerPrefs.GetInt("Gameplay"));
 
-        
+
     //}
 
-    void NextLevel()
+    IEnumerator NextLevel()
     {
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("Main");
     }
 
@@ -158,6 +159,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameManager.instance.GameOver();
     }
+   
     void OnCollisionEnter(Collision target)
     {
         if (target.gameObject.tag == "Enemy")
@@ -167,13 +169,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void OnTriggerEnter(Collider target)
     {
         if (target.gameObject.name == "Finish")
         {
-            //StartCoroutine(NextLevel());
-            NextLevel();
+           StartCoroutine(NextLevel());
+           //Invoke("NextLevel", 3f);
+         // NextLevel();
         }
     }
 
