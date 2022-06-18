@@ -9,8 +9,9 @@ public class LevelProgressUI : MonoBehaviour
     [SerializeField] private Image uiFillImage;
     [SerializeField] private Text uiStartText;
     [SerializeField] private Text uiEndText;
+    
 
-    [Header("Player & Endline references :")]
+   [Header("Player & Endline references :")]
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform endLineTransform;
     private Vector3 endLinePosition;

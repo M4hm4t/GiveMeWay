@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 165751951435665069}
   - component: {fileID: 165751951435665068}
   - component: {fileID: 165751951435665067}
+  - component: {fileID: 5710086363396122309}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 165751951435665066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 138.4}
-  m_LocalScale: {x: 1, y: 1, z: 28.728254}
+  m_LocalScale: {x: 1, y: 1, z: 28.83}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 165751951910725042}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8ed6be4d200f44763bb6a52ceb413920, type: 2}
+  - {fileID: 2100000, guid: 89da178192942474cb10e6ba8737a6a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,6 +101,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5710086363396122309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165751951435665066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2196f26ef56275469ff1b5b22d6e8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165751951910725041
 GameObject:
   m_ObjectHideFlags: 0
