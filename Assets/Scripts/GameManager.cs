@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
    // private float startDistance, currentDistance;
     private GameObject player, finish;
     public GameObject swipeHand;
-
+    
     private TextMesh startText;
-
+    
     public static GameManager instance;
     [SerializeField] private Canvas gameOverCanvas;
 
@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         gameOverText.text = gameOverInfo;
 
     }
+   
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

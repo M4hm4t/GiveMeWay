@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody myRigidBody;
-
+    public GameObject confettiPos;
+    public Transform partcilePrefab;
     private Vector3 lastMousePos;
-
+    public GameObject line;
     [SerializeField] private float sensitivity = .5f,
                                     clampDelta = 50f,
                                         bounds = 5f;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        line.gameObject.GetComponent<TrailRenderer>().emitting = true;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -bounds, bounds), transform.position.y, transform.position.z);
         if (canMove)
         {
@@ -150,7 +152,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator NextLevel()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene("Main");
     }
 
@@ -173,26 +175,17 @@ public class PlayerController : MonoBehaviour
     {
         if (target.gameObject.name == "Finish")
         {
+            FinishParticle();
            StartCoroutine(NextLevel());
            //Invoke("NextLevel", 3f);
          // NextLevel();
         }
     }
+    void FinishParticle()
+    {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Transform partcile = Instantiate(partcilePrefab, confettiPos.transform.position, Quaternion.identity);
+        //  partcile.GetComponent<ParticleSystem>().startColor = playerManager.collectedObjMat.color;
+    }
 
 }
