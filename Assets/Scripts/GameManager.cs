@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instance;
     [SerializeField] private Canvas gameOverCanvas;
-
+    //public GameObject[] levels;
     [SerializeField] private Text gameOverText;
 
 
@@ -42,29 +42,27 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
         finish = GameObject.Find("Finish");
         swipeHand = GameObject.Find("Swipe");
-
         startText = GameObject.Find("StartText").GetComponent<TextMesh>();
-
-
-
-
 
     }
 
     void Start()
     {
 
-       // Scene scene = SceneManager.GetActiveScene();
+        // Scene scene = SceneManager.GetActiveScene();
         // print(scene.buildIndex); // checking to see which value will return. It returns 0 
-       // int currentlevel = scene.buildIndex + 1;
+        // int currentlevel = scene.buildIndex + 1;
 
-       // startText.text = "Level " + currentlevel;
+        // startText.text = "Level " + currentlevel;
 
-       // NextLevelText.text = currentlevel + 1 + "";
-       // CurrentLevelText.text = currentlevel.ToString();
-       
-      //  startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
+        // NextLevelText.text = currentlevel + 1 + "";
+        // CurrentLevelText.text = currentlevel.ToString();
 
+        //  startDistance = Vector3.Distance(player.transform.position, finish.transform.position);
+        //levels = GameObject.FindGameObjectsWithTag("Level");
+       // foreach (var level in levels) { 
+
+       // }
 
 
     }
@@ -95,6 +93,11 @@ public class GameManager : MonoBehaviour
    
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //foreach (GameObject level in levels)
+        //{
+        //   levels.DontDestroyOnLoad();
+        //}
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

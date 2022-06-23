@@ -175,6 +175,8 @@ public class PlayerController : MonoBehaviour
     {
         if (target.gameObject.name == "Finish")
         {
+            DataManager.Clear();
+          //  PlayerPrefs.DeleteKey("level");
             FinishParticle();
            StartCoroutine(NextLevel());
            //Invoke("NextLevel", 3f);

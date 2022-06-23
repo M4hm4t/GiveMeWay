@@ -5,33 +5,45 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-	public string spawnPointTag = "sometag";
-	public bool alwaysSpawn = true;
+    public string spawnPointTag = "sometag";
+    public bool alwaysSpawn = true;
 
-	public List<GameObject> prefabsToSpawn;
+    public List<GameObject> prefabsToSpawn;
+    public int[] positions;
+    // Start is called before the first frame update
+    void Start()
+    {
+        positions =DataManager.GetInt("level");
+        Debug.Log(positions.Length);
+        if (positions.Length == 0)
+        {
+            GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(spawnPointTag);
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(spawnPointTag);
-		foreach (GameObject spawnPoint in spawnPoints)
-		{
-			int randomPrefab = Random.Range(0, prefabsToSpawn.Count);
-			if (alwaysSpawn)
-			{
-				GameObject pts = Instantiate(prefabsToSpawn[randomPrefab]);
-				pts.transform.position = spawnPoint.transform.position;
-			}
-			else
-			{
-				int spawnOrNot = Random.Range(0, 2);
-				if (spawnOrNot == 0)
-				{
-					GameObject pts = Instantiate(prefabsToSpawn[randomPrefab]);
-					pts.transform.position = spawnPoint.transform.position;
-				}
-			}
-		}
-	}
+            // random üret
+            positions = new int[spawnPoints.Length];
+            for (int i = 0; i < positions.Length; i++)
+            {
+                positions[i] = Random.Range(0, prefabsToSpawn.Count);
+            }
+        }
+        GenerateLevel(positions);
+    }
+    void GenerateLevel(int[] levels)
+    {
+        DataManager.SetInt("level", levels);
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(spawnPointTag);
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            GameObject spawnPoint = spawnPoints[i];
+            int randomPrefab = levels[i];
+            GameObject pts = Instantiate(prefabsToSpawn[randomPrefab]);
+            pts.transform.position = spawnPoint.transform.position;
+        }
+
+    }
+  
+
+
 
 }

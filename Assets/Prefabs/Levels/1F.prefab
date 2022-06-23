@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 9205617311358831763}
   m_Layer: 0
   m_Name: 1F
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

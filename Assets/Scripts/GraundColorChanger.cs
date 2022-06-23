@@ -9,10 +9,6 @@ public class GraundColorChanger : MonoBehaviour
 
     void Start()
     {
-
-        randomColor = new Color(Random.Range(0.1f, 1), Random.Range(0.1f, 1), Random.Range(0.1f, 1));
-        gameObject.GetComponent<MeshRenderer>().material.color = randomColor;
-
-
+        gameObject.GetComponent<MeshRenderer>().material.color = DataManager.GetColor("Ground");
     }
 }
