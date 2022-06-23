@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 353389056242133222, guid: ce9e6897e7707b54aa7e803c95ad9cbc, type: 3}
       propertyPath: partcilePrefab
       value: 
-      objectReference: {fileID: 2507985994617002732, guid: 55216d1f2871c0b42af53c2c4c76816f, type: 3}
+      objectReference: {fileID: 7310339703745015862, guid: 34787d88055071848b9f6402a83307dc, type: 3}
     - target: {fileID: 353389056242133241, guid: ce9e6897e7707b54aa7e803c95ad9cbc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -399,13 +399,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118473302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.62, z: 90.6}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_LocalRotation: {x: -0.4383711, y: -0, z: -0, w: 0.89879405}
+  m_LocalPosition: {x: -0.013450087, y: -0.99, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1730513421}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1267886591
 PrefabInstance:
@@ -683,6 +683,11 @@ TrailRenderer:
 --- !u!20 &1730513420 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7263672512780451070, guid: d2ffe323d5b8ed143adf75b8c3c2bd48, type: 3}
+  m_PrefabInstance: {fileID: 1986767498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1730513421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7263672512780451065, guid: d2ffe323d5b8ed143adf75b8c3c2bd48, type: 3}
   m_PrefabInstance: {fileID: 1986767498}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1737834502 stripped
