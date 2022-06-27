@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
     public Transform partcilePrefab;
     private Vector3 lastMousePos;
     public GameObject line;
-    [SerializeField] private float sensitivity = .5f,
+    [SerializeField]
+    private float sensitivity = .5f,
                                     clampDelta = 50f,
                                         bounds = 5f;
 
     [HideInInspector]
-    public bool canMove , gameOver, finish;
+    public bool canMove, gameOver, finish;
     [HideInInspector]
     public int m_playerPrefScene;
 
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody>();
-        
+
     }
 
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += FindObjectOfType<CameraMovement>().camVelocity;
         }
-       
+
 
         if (!canMove && gameOver)
         {
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 GameManager.instance.RestartGame();
-               // GameManager.instance.GameOverText("Tap to Restart");
+                // GameManager.instance.GameOverText("Tap to Restart");
                 Time.timeScale = 1;
                 Time.fixedDeltaTime = Time.timeScale * 0.02f;
             }
@@ -59,13 +60,13 @@ public class PlayerController : MonoBehaviour
         else if (!canMove && !finish)
         {
             if (Input.GetMouseButtonDown(0))
-            { 
+            {
                 FindObjectOfType<GameManager>().RemoveUI();
                 canMove = true;
             }
-            
+
         }
-           
+
     }
 
 
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lastMousePos = Input.mousePosition;
-            
+
         }
 
         if (canMove)
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
         }
 
         myRigidBody.velocity.Normalize();
-        
+
     }
 
     private void GameOver()
@@ -150,23 +151,23 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    IEnumerator NextLevel()
-    {
-        yield return new WaitForSeconds(0.7f);
-        SceneManager.LoadScene("Main");
-    }
+    //IEnumerator NextLevel()
+    //{
+    //    yield return new WaitForSeconds(0.7f);
+    //    SceneManager.LoadScene("Main");
+    //}
 
     IEnumerator GameoverCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
         GameManager.instance.GameOver();
     }
-   
+
     void OnCollisionEnter(Collision target)
     {
         if (target.gameObject.tag == "Enemy")
         {
-            if(!gameOver)
+            if (!gameOver)
                 GameOver();
         }
     }
@@ -176,11 +177,22 @@ public class PlayerController : MonoBehaviour
         if (target.gameObject.name == "Finish")
         {
             DataManager.Clear();
-          //  PlayerPrefs.DeleteKey("level");
+
+            //  PlayerPrefs.DeleteKey("level");
             FinishParticle();
-           StartCoroutine(NextLevel());
-           //Invoke("NextLevel", 3f);
-         // NextLevel();
+            GameOver();
+           GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
+//#if !UNITY_EDITOR
+//            GoogleAdMobController.Instance.OnAdClosedEvent.AddListener(() =>
+//            {
+                
+//                StartCoroutine(NextLevel());
+//            });
+//#else
+//            StartCoroutine(NextLevel());
+//#endif
+            //Invoke("NextLevel", 3f);
+            // NextLevel();
         }
     }
     void FinishParticle()
