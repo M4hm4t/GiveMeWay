@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
     public Vector3 camVelocity;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (FindObjectOfType<PlayerController>().canMove)
         {

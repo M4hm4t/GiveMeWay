@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove, gameOver, finish;
     [HideInInspector]
     public int m_playerPrefScene;
-
+   private ADManager adManager;
     [SerializeField]
     private GameObject breakablePlayer;
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-
+               
                 GameManager.instance.RestartGame();
                 // GameManager.instance.GameOverText("Tap to Restart");
                 Time.timeScale = 1;
@@ -118,6 +118,9 @@ public class PlayerController : MonoBehaviour
 
         Time.timeScale = .3f;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        adManager.SetInterstitialAd();
+       // GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
+
     }
 
 
@@ -181,7 +184,7 @@ public class PlayerController : MonoBehaviour
             //  PlayerPrefs.DeleteKey("level");
             FinishParticle();
             GameOver();
-           GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
+          // GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
 //#if !UNITY_EDITOR
 //            GoogleAdMobController.Instance.OnAdClosedEvent.AddListener(() =>
 //            {

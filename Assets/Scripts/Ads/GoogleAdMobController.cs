@@ -169,8 +169,9 @@ public class GoogleAdMobController : MonoBehaviour
     {
         PrintStatus("Requesting Interstitial ad.");
 
+        string adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #if UNITY_EDITOR
-        string adUnitId = "unused";
+      //  string adUnitId = "unused";
 #elif UNITY_ANDROID
         string adUnitId = "ca-app-pub-4152565271674548/5440694988";
 #elif UNITY_IPHONE
