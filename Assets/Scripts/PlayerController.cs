@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove, gameOver, finish;
     [HideInInspector]
     public int m_playerPrefScene;
-  // private ADManager adManager;
+    // private ADManager adManager;
     [SerializeField]
     private GameObject breakablePlayer;
 
@@ -33,47 +33,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        MobileAds.Initialize(initStatus => { });
-        this.RequestInterstitial();
-    }
-
-    public void SetInterstitialAd()
-    {
-        if (this.interstitial.IsLoaded())
-        {
-            this.interstitial.Show();
-        }
-    }
-    void RequestInterstitial()
-    {
-        string adID = "ca-app-pub-3940256099942544/1033173712";//test reklam android
-        this.interstitial = new InterstitialAd(adID);
-        AdRequest request = new AdRequest.Builder().Build();
-        this.interstitial.LoadAd(request);
-    }
-
     void Update()
     {
-        line.gameObject.GetComponent<TrailRenderer>().emitting = true;
+        //line.gameObject.GetComponent<TrailRenderer>().emitting = true;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -bounds, bounds), transform.position.y, transform.position.z);
         if (canMove)
         {
             transform.position += FindObjectOfType<CameraMovement>().camVelocity;
         }
-       // adManager.SetInterstitialAd();
 
         if (!canMove && gameOver)
         {
-            StartCoroutine(GameoverCoroutine());
-            //GameManager.instance.GameOver();
 
             if (Input.GetMouseButtonDown(0))
             {
-               
+
                 GameManager.instance.RestartGame();
-                // GameManager.instance.GameOverText("Tap to Restart");
                 Time.timeScale = 1;
                 Time.fixedDeltaTime = Time.timeScale * 0.02f;
             }
@@ -121,14 +96,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   public void GameOver()
+    public void GameOver()
     {
         GameObject shatterSphere = Instantiate(breakablePlayer, transform.position, Quaternion.identity);
 
         foreach (Transform o in shatterSphere.transform)
         {
             o.GetComponent<Rigidbody>().AddForce(Vector3.forward * 4, ForceMode.Impulse);
-            //Vector3.forward * myRigidBody.velocity.magnitude, ForceMode.Impulse
+           
         }
 
 
@@ -139,53 +114,22 @@ public class PlayerController : MonoBehaviour
 
         Time.timeScale = .3f;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        SetInterstitialAd();
-       // GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
+        StartCoroutine(ShowAds());
 
     }
-
-
-    //IEnumerator NextLevel()
-    //{
-    //    finish = true;
-    //    canMove = false;
-    //    m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);  
-
-    //   PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
-    //  // print("current playerref scene: " + m_playerPrefScene); //Testing to see what is the current saved playerRef scene
-
-    //   Scene scene = SceneManager.GetActiveScene();
-    //   // print("curent active scene : "+ scene.name); /testing to see if the current active scene matches to saved playerRef scene
-
-    //    string playerRefSceneName = string.Concat("Gameplay", m_playerPrefScene);
-    //    //print(playerRefSceneName);
-
-
-    //    if (playerRefSceneName != scene.name)  //if they are not matched delete all the key and values. Assign again
-    //    {
-    //        PlayerPrefs.DeleteAll();
-    //        m_playerPrefScene = PlayerPrefs.GetInt("Gameplay", 1);
-    //        PlayerPrefs.SetInt("Gameplay", m_playerPrefScene + 1);
-    //    }
-
-
-    //   yield return new WaitForSeconds(1);
-    //   SceneManager.LoadScene("Gameplay" + PlayerPrefs.GetInt("Gameplay"));
-
-
-    //}
-
-    //IEnumerator NextLevel()
-    //{
-    //    yield return new WaitForSeconds(0.7f);
-    //    SceneManager.LoadScene("Main");
-    //}
-
-    IEnumerator GameoverCoroutine()
+    private IEnumerator ShowAds(float time = 0.3f)
     {
-        yield return new WaitForSeconds(0.2f);
-        GameManager.instance.GameOver();
+        yield return new WaitForSeconds(time);
+        ADManager.Instance.SetInterstitialAd();
+        //StartCoroutine(GameoverCoroutine());
+
     }
+
+    //IEnumerator GameoverCoroutine()
+    //{
+    //    yield return new WaitForSeconds(0.2f);
+    //    GameManager.instance.GameOver();
+    //}
 
     void OnCollisionEnter(Collision target)
     {
@@ -201,29 +145,14 @@ public class PlayerController : MonoBehaviour
         if (target.gameObject.name == "Finish")
         {
             DataManager.Clear();
-
-            //  PlayerPrefs.DeleteKey("level");
             FinishParticle();
-            GameOver();
-          // GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
-//#if !UNITY_EDITOR
-//            GoogleAdMobController.Instance.OnAdClosedEvent.AddListener(() =>
-//            {
-                
-//                StartCoroutine(NextLevel());
-//            });
-//#else
-//            StartCoroutine(NextLevel());
-//#endif
-            //Invoke("NextLevel", 3f);
-            // NextLevel();
+            GameOver();    
         }
     }
     void FinishParticle()
     {
 
         Transform partcile = Instantiate(partcilePrefab, confettiPos.transform.position, Quaternion.identity);
-        //  partcile.GetComponent<ParticleSystem>().startColor = playerManager.collectedObjMat.color;
     }
 
 }

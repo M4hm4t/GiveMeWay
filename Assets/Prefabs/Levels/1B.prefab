@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3979841968108358192}
   m_Layer: 0
   m_Name: 1B
-  m_TagString: Level
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6241,12 +6241,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308593, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308594, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 267cf97d8534bee498ac48926273c878, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247fafca18ad0843b7a1a320a1f4d3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
 --- !u!4 &6915313032195104963 stripped
@@ -7293,12 +7293,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308593, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308594, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 267cf97d8534bee498ac48926273c878, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247fafca18ad0843b7a1a320a1f4d3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
 --- !u!4 &6915313032362929728 stripped
@@ -13023,12 +13023,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308593, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308594, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 267cf97d8534bee498ac48926273c878, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247fafca18ad0843b7a1a320a1f4d3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
 --- !u!4 &2900692221800048514 stripped
@@ -16241,12 +16241,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308593, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7548910107883308594, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 267cf97d8534bee498ac48926273c878, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247fafca18ad0843b7a1a320a1f4d3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d7a63b71c6e1d4086a57eecd2376b2, type: 3}
 --- !u!4 &1092648195918072752 stripped

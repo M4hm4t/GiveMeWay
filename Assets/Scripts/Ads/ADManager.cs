@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
 
-public class ADManager : MonoBehaviour
+public class ADManager : Singleton<ADManager>
 {
     private InterstitialAd interstitial;
     // Start is called before the first frame update
@@ -12,16 +12,14 @@ public class ADManager : MonoBehaviour
         MobileAds.Initialize(initStatus => { });
         this.RequestInterstitial();
     }
-    private void Update()
-    {
-       // SetInterstitialAd();
-    }
+   
     public  void SetInterstitialAd()
     {
         if (this.interstitial.IsLoaded())
         {
         this.interstitial.Show();
         }
+        this.RequestInterstitial();
     }
 
 

@@ -11,7 +11,7 @@ public class DataManager
         // serialization
         // 1|2|12
         var rawData = PlayerPrefs.GetString(key, "");
-        Debug.Log(rawData);
+        //Debug.Log(rawData);
         var stringPositions = rawData.Split('|');
         var array = new List<int>();
         for (int i = 0; i < stringPositions.Length; i++)
@@ -29,7 +29,7 @@ public class DataManager
         // serialization
         // 1|2|12
         var rawData = PlayerPrefs.GetString(key, "");
-        Debug.Log(rawData);
+        //Debug.Log(rawData);
         var stringPositions = rawData.Split('|');
         var array = new List<float>();
         for (int i = 0; i < stringPositions.Length; i++)
