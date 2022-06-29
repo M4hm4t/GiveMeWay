@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GoogleMobileAds.Api;
 
 public class PlayerController : MonoBehaviour
 {
+    private InterstitialAd interstitial;
     private Rigidbody myRigidBody;
     public GameObject confettiPos;
     public Transform partcilePrefab;
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove, gameOver, finish;
     [HideInInspector]
     public int m_playerPrefScene;
-   private ADManager adManager;
+  // private ADManager adManager;
     [SerializeField]
     private GameObject breakablePlayer;
 
@@ -31,7 +33,26 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        MobileAds.Initialize(initStatus => { });
+        this.RequestInterstitial();
+    }
 
+    public void SetInterstitialAd()
+    {
+        if (this.interstitial.IsLoaded())
+        {
+            this.interstitial.Show();
+        }
+    }
+    void RequestInterstitial()
+    {
+        string adID = "ca-app-pub-3940256099942544/1033173712";//test reklam android
+        this.interstitial = new InterstitialAd(adID);
+        AdRequest request = new AdRequest.Builder().Build();
+        this.interstitial.LoadAd(request);
+    }
 
     void Update()
     {
@@ -41,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position += FindObjectOfType<CameraMovement>().camVelocity;
         }
-
+       // adManager.SetInterstitialAd();
 
         if (!canMove && gameOver)
         {
@@ -100,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void GameOver()
+   public void GameOver()
     {
         GameObject shatterSphere = Instantiate(breakablePlayer, transform.position, Quaternion.identity);
 
@@ -118,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
         Time.timeScale = .3f;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        adManager.SetInterstitialAd();
+        SetInterstitialAd();
        // GoogleAdMobController.Instance.RequestAndLoadInterstitialAd();
 
     }

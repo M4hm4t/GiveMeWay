@@ -16,13 +16,16 @@ public class ADManager : MonoBehaviour
     {
        // SetInterstitialAd();
     }
-    public void SetInterstitialAd()
+    public  void SetInterstitialAd()
     {
         if (this.interstitial.IsLoaded())
         {
         this.interstitial.Show();
         }
     }
+
+
+
     void RequestInterstitial()
     {
         string adID = "ca-app-pub-3940256099942544/1033173712";//test reklam android
