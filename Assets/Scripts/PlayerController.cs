@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
                 myRigidBody.AddForce(Vector3.forward * 2 + (-moveForce * sensitivity - myRigidBody.velocity), ForceMode.VelocityChange);
 
-
             }
         }
 
@@ -121,15 +120,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         ADManager.Instance.SetInterstitialAd();
-        //StartCoroutine(GameoverCoroutine());
+        StartCoroutine(GameoverCoroutine());
 
     }
 
-    //IEnumerator GameoverCoroutine()
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-    //    GameManager.instance.GameOver();
-    //}
+    IEnumerator GameoverCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameManager.instance.GameOver();
+    }
 
     void OnCollisionEnter(Collision target)
     {

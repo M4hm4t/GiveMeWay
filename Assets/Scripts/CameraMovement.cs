@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
      
         if (playerController.canMove)

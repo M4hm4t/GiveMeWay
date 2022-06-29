@@ -26,7 +26,7 @@ public class ADManager : Singleton<ADManager>
 
     void RequestInterstitial()
     {
-        string adID = "ca-app-pub-3940256099942544/1033173712";//test reklam android
+        string adID = "ca-app-pub-4152565271674548/5440694988";//test reklam android
         this.interstitial = new InterstitialAd(adID);
         AdRequest request = new AdRequest.Builder().Build();
         this.interstitial.LoadAd(request);

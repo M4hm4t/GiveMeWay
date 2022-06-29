@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         positions =DataManager.GetInt("level");
-        Debug.Log(positions.Length);
+        
         if (positions.Length == 0)
         {
             GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(spawnPointTag);

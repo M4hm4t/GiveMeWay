@@ -50,7 +50,7 @@ public class DataManager
             data += item + "|";
         }
         data = data.Trim('|');
-        Debug.Log("saved data: " + data);
+        
         PlayerPrefs.SetString(key, data);
     }
     public static void SetFloat(string key, float[] values)
@@ -61,7 +61,7 @@ public class DataManager
             data += item + "|";
         }
         data = data.Trim('|');
-        Debug.Log("saved data: " + data);
+        
         PlayerPrefs.SetString(key, data);
     }
 

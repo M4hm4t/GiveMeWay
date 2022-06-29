@@ -10,6 +10,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.adaptiveperformance.samsung.android": {
+      "version": "4.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.adaptiveperformance": "4.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ads": {
       "version": "4.2.1",
       "depth": 0,
